@@ -45,8 +45,8 @@ class ExclusiveTraitForTest3: ExclusiveTrait<Test3>() {
 
 fun main() {
     // Register the trait
-    registerTrait { AlternativeToStringTraitForTest() } // is AlternativeToStringTrait<Test>
-    registerTrait { ReversedAltToString() } // T is implicitly `Test`
+    registerTrait(::AlternativeToStringTraitForTest) // is AlternativeToStringTrait<Test>
+    registerTrait(::ReversedAltToString) // T is implicitly `Test`
 
     // Test the traits
     println(Test().getTrait<Test, AlternativeToStringTrait<Test>>()!!.altToString())
@@ -56,8 +56,8 @@ fun main() {
     println(Test2().getTrait(ReversedAltToString::class)!!.reversedAltToString())
 
     // Register the exclusive traits
-    registerTrait { ExclusiveTraitForTest2() }
-    registerTrait { ExclusiveTraitForTest3() }
+    registerTrait(::ExclusiveTraitForTest2)
+    registerTrait(::ExclusiveTraitForTest3)
 
     // Test the exclusive traits
     println(Test2().getTrait(ExclusiveTraitForTest2::class)!!.altToStringExclusive())

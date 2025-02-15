@@ -50,9 +50,9 @@ class PrintableStringDirect: Trait<String> { // Not searchable with Printable si
 
 ## Registering traits
 Before you're able to use your traits, you have to register them first.  
-To register a trait, you can call `registerTrait` and supply it with a code block which returns a new instance of your trait.
+To register a trait, you can call `registerTrait` and supply it with the trait's constructor.
 ```kotlin
-registerTrait { TraitClass() }
+registerTrait(::TraitClass)
 ```
 
 ## Using traits

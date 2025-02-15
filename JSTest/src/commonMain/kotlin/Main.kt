@@ -27,8 +27,8 @@ class ReversedAltToString: Trait<Test>() {
 
 fun main() {
     // Register the trait
-    registerTrait { AlternativeToStringTraitForTest() } // is AlternativeToStringTrait<Test>
-    registerTrait { ReversedAltToString() } // T is implicitly `Test`
+    registerTrait(::AlternativeToStringTraitForTest) // is AlternativeToStringTrait<Test>
+    registerTrait(::ReversedAltToString) // T is implicitly `Test`
 
     println(Test().getTrait<Test, AlternativeToStringTrait<Test>>()!!.altToString())
     println(Test2().getTrait<Test2, AlternativeToStringTrait<Test2>>()!!.altToString())
